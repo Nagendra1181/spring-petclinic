@@ -28,7 +28,7 @@ pipeline {
                 withSonarQubeEnv('sonar') {
                   sh """
                    mvn sonar:sonar \
-                  -Dsonar.projectKey=spring-petclinic \
+                  -Dsonar.projectKey=Nagendra1181_spring-petclinic \
                   -Dsonar.organization=Nagendra1181 \
                   -Dsonar.host.url=https://sonarcloud.io \
                   -Dsonar.login=$SONAR_TOKEN
