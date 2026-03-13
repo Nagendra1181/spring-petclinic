@@ -25,7 +25,7 @@ pipeline {
         stage('SonarCloud Scan') {
             steps {
               withCredentials([string(credentialsId: 'sonar_id', variable: 'SONAR_TOKEN')]) {
-                withSonarQubeEnv('Sonar') {
+                withSonarQubeEnv('sonar') {
                   sh """
                    mvn sonar:sonar \
                   -Dsonar.projectKey=Nagendra1181_spring-petclinic \
