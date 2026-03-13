@@ -34,7 +34,7 @@ pipeline {
                 -Dsonar.projectKey=Nagendra1181_spring-petclinic \
                 -Dsonar.organization=Nagendra1181 \
                 -Dsonar.host.url=https://sonarcloud.io/ \
-                -Dsonar.login=$SONAR_id
+                -Dsonar.login=$sonar_id
                 """
             }
         }
