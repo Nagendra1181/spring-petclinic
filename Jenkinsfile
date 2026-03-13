@@ -8,7 +8,7 @@ pipeline {
 
 
     environment {
-        SONAR_TOKEN = credentials('sonar_id')
+        SONAR_TOKEN = credentials('sonar')
         
     }
 
