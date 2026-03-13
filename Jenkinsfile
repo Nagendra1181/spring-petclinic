@@ -7,11 +7,6 @@ pipeline {
     }
 
 
-    environment {
-        SONAR_TOKEN = credentials('sonar')
-        
-    }
-
     stages {
 
         stage('Checkout Code') {
@@ -29,13 +24,15 @@ pipeline {
 
         stage('SonarCloud Scan') {
             steps {
-                sh """
-                mvn sonar:sonar \
-                -Dsonar.projectKey=Nagendra1181_spring-petclinic \
-                -Dsonar.organization=Nagendra1181 \
-                -Dsonar.host.url=https://sonarcloud.io/ \
-                -Dsonar.login=$SONAR_TOKEN
-                """
+              withCredentials([string(credentialsId: 'sonar_id', variable: 'SONAR_TOKEN')]) {
+                withSonarQubeEnv('Sonar') {
+                  sh """
+                   mvn sonar:sonar \
+                  -Dsonar.projectKey=Nagendra1181_spring-petclinic \
+                  -Dsonar.organization=Nagendra1181 \
+                  -Dsonar.host.url=https://sonarcloud.io/ \
+                  -Dsonar.login=$SONAR_TOKEN
+                 """
             }
         }
 
@@ -46,5 +43,7 @@ pipeline {
                 }
             }
         }
+    }
+}
     }
 }
