@@ -7,10 +7,10 @@ pipeline {
     }
 
 
-    environment {
-        SONAR_TOKEN = credentials('sonar')
+    // environment {
+    //     SONAR_TOKEN = credentials('sonar')
         
-    }
+    // }
 
     stages {
 
