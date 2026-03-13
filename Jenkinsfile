@@ -30,7 +30,7 @@ pipeline {
                    mvn sonar:sonar \
                   -Dsonar.projectKey=spring-petclinic \
                   -Dsonar.organization=Nagendra1181 \
-                  -Dsonar.host.url=https://sonarcloud.io/ \
+                  -Dsonar.host.url=https://sonarcloud.io \
                   -Dsonar.login=$SONAR_TOKEN
                  """
             }   }  }
