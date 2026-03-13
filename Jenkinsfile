@@ -16,18 +16,14 @@ pipeline {
             }
         }
 
-        stage('Build Application') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
+      
 
         stage('SonarCloud Scan') {
             steps {
               withCredentials([string(credentialsId: 'sonar_id', variable: 'SONAR_TOKEN')]) {
                 withSonarQubeEnv('sonar') {
                   sh """
-                   mvn sonar:sonar \
+                   mvn  clean package sonar:sonar \
                   -Dsonar.projectKey=Nagendra1181_spring-petclinic \
                   -Dsonar.organization=Nagendra1181 \
                   -Dsonar.host.url=https://sonarcloud.io \
