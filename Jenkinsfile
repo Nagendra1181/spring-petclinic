@@ -33,7 +33,7 @@ pipeline {
                   -Dsonar.host.url=https://sonarcloud.io/ \
                   -Dsonar.login=$SONAR_TOKEN
                  """
-            }
+            }   }  }
         }
 
         stage('Quality Gate') {
@@ -44,6 +44,4 @@ pipeline {
             }
         }
     }
-}
-    }
-}
+}          
